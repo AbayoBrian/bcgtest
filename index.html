@@ -171,6 +171,29 @@
             grid-column: 1 / -1;
         }
 
+        .subsection {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .subsection h3 {
+            color: var(--text-primary);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .subsection h3::before {
+            content: '📋';
+            font-size: 1rem;
+        }
+
         label {
             display: block;
             margin-bottom: 0.5rem;
@@ -320,6 +343,20 @@
             font-size: 0.9rem;
         }
 
+        .note-card {
+            background: linear-gradient(135deg, #fef7cd, #fbbf24);
+            border: 1px solid #f59e0b;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            color: #92400e;
+            font-size: 0.9rem;
+        }
+
+        .note-card strong {
+            color: #78350f;
+        }
+
         @media (max-width: 768px) {
             body { padding: 1rem 0.5rem; }
             .container { margin: 0; border-radius: 0; }
@@ -354,6 +391,12 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+
+        .file-selected {
+            background: rgba(37, 99, 235, 0.1);
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
     </style>
 </head>
 <body>
@@ -367,8 +410,8 @@
             <div class="progress-bar">
                 <div class="progress-fill" id="progressFill"></div>
             </div>
-            <form id="irrigationForm" action="/submit" method="POST" enctype="multipart/form-data">
             
+            <form id="irrigationForm" action="submit_data.php" method="POST" enctype="multipart/form-data">
                 <div class="section fade-in">
                     <h2>Basic Information</h2>
                     <div class="info-card">
@@ -404,6 +447,159 @@
                             <select id="scheme" name="scheme" required>
                                 <option value="">Select Subcounty First</option>
                             </select>
+                        </div>
+                    </div>
+
+                    <!-- Office Bearers Section -->
+                    <div class="subsection">
+                        <h3>Office Bearers Information</h3>
+                        <div class="note-card">
+                            <strong>Note:</strong> Please upload a PDF document containing details of all office bearers including Chairman, Secretary, Treasurer, and Committee Members. The document should include: Full Name, ID Number, Telephone Number, and Signature for each office bearer.
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="officeBearersPdf" class="required">Office Bearers Details (PDF)</label>
+                            <div class="file-input-wrapper">
+                                <input type="file" id="officeBearersPdf" name="officeBearersPdf" accept=".pdf" class="file-input" required>
+                                <label for="officeBearersPdf" class="file-input-label">
+                                    📄 Upload Office Bearers PDF
+                                    <span style="font-size: 0.875rem; opacity: 0.8;">(PDF files only)</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Scheme Members Section -->
+                    <div class="subsection">
+                        <h3>Scheme Members Information</h3>
+                        <div class="note-card">
+                            <strong>Note:</strong> Please upload a PDF document containing the complete list of scheme members. The document should include: Full Name, ID Number, Telephone Number, Age, and Gender for each member.
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="schemeMembersPdf" class="required">Scheme Members List (PDF)</label>
+                            <div class="file-input-wrapper">
+                                <input type="file" id="schemeMembersPdf" name="schemeMembersPdf" accept=".pdf" class="file-input" required>
+                                <label for="schemeMembersPdf" class="file-input-label">
+                                    📄 Upload Members List PDF
+                                    <span style="font-size: 0.875rem; opacity: 0.8;">(PDF files only)</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Infrastructure & Resources Section -->
+                <div class="section fade-in">
+                    <h2>Infrastructure & Resources</h2>
+                    
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="registrationStatus" class="required">Registration Status</label>
+                            <select id="registrationStatus" name="registrationStatus" required>
+                                <option value="">Select Registration Status</option>
+                                <option value="Self help group">Self Help Group</option>
+                                <option value="CBO">Community Based Organization (CBO)</option>
+                                <option value="Irrigation water user association">Irrigation Water User Association (IWUA)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="infrastructureStatus">Infrastructure Status</label>
+                            <select id="infrastructureStatus" name="infrastructureStatus">
+                                <option value="">Select Status</option>
+                                <option value="Fully functional">Fully Functional</option>
+                                <option value="Partially functional">Partially Functional</option>
+                                <option value="Needs repair">Needs Repair</option>
+                                <option value="Not functional">Not Functional</option>
+                                <option value="Not constructed">Not Constructed</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="waterSource">Primary Water Source</label>
+                            <input type="text" id="waterSource" name="waterSource" placeholder="e.g., River Perkerra, Borehole">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="waterAvailability">Water Availability Status</label>
+                            <select id="waterAvailability" name="waterAvailability">
+                                <option value="">Select Availability</option>
+                                <option value="Adequate">Adequate</option>
+                                <option value="Inadequate">Inadequate</option>
+                                <option value="Seasonal">Seasonal</option>
+                                <option value="No water">No Water Available</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="intakeWorksType">Type of Intake Works</label>
+                            <input type="text" id="intakeWorksType" name="intakeWorksType" placeholder="e.g., Weir, Pump station, Gravity intake">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="conveyanceWorksType">Type of Conveyance Works</label>
+                            <input type="text" id="conveyanceWorksType" name="conveyanceWorksType" placeholder="e.g., Open canals (lined/earth), Pipes (specify size)">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="applicationType">Type of Application</label>
+                            <select id="applicationType" name="applicationType">
+                                <option value="">Select Application Type</option>
+                                <option value="Sprinkler">Sprinkler</option>
+                                <option value="Canals">Canals</option>
+                                <option value="Basin">Basin</option>
+                                <option value="Drip">Drip Irrigation</option>
+                                <option value="Furrow">Furrow Irrigation</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="mainCrop">Primary Crop</label>
+                            <input type="text" id="mainCrop" name="mainCrop" placeholder="e.g., Maize, Tomatoes, Onions">
+                        </div>
+                    </div>
+
+                    <!-- Additional Documentation Section -->
+                    <div class="subsection">
+                        <h3>Additional Documentation</h3>
+                        <div class="note-card">
+                            <strong>Note:</strong> Please upload relevant documents including by-laws, scheme maps, intake works designs, bills of quantities, and photos as separate PDF files.
+                        </div>
+                        
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="bylawsPdf">Status of By-laws (PDF)</label>
+                                <div class="file-input-wrapper">
+                                    <input type="file" id="bylawsPdf" name="bylawsPdf" accept=".pdf" class="file-input">
+                                    <label for="bylawsPdf" class="file-input-label">
+                                        📄 Upload By-laws PDF
+                                        <span style="font-size: 0.875rem; opacity: 0.8;">(Optional)</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="schemeMapPdf">Scheme Map (PDF)</label>
+                                <div class="file-input-wrapper">
+                                    <input type="file" id="schemeMapPdf" name="schemeMapPdf" accept=".pdf" class="file-input">
+                                    <label for="schemeMapPdf" class="file-input-label">
+                                        📄 Upload Scheme Map PDF
+                                        <span style="font-size: 0.875rem; opacity: 0.8;">(Optional)</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="intakeDesignsPdf">Intake Works Designs & BOQ (PDF)</label>
+                                <div class="file-input-wrapper">
+                                    <input type="file" id="intakeDesignsPdf" name="intakeDesignsPdf" accept=".pdf" class="file-input">
+                                    <label for="intakeDesignsPdf" class="file-input-label">
+                                        📄 Upload Designs & BOQ PDF
+                                        <span style="font-size: 0.875rem; opacity: 0.8;">(Optional)</span>
+                                    </label>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -453,45 +649,6 @@
                 </div>
                 
                 <div class="section fade-in">
-                    <h2>Infrastructure & Resources</h2>
-                    
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label for="infrastructureStatus">Infrastructure Status</label>
-                            <select id="infrastructureStatus" name="infrastructureStatus">
-                                <option value="">Select Status</option>
-                                <option value="Fully functional">Fully Functional</option>
-                                <option value="Partially functional">Partially Functional</option>
-                                <option value="Needs repair">Needs Repair</option>
-                                <option value="Not functional">Not Functional</option>
-                                <option value="Not constructed">Not Constructed</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="waterSource">Primary Water Source</label>
-                            <input type="text" id="waterSource" name="waterSource" placeholder="e.g., River Perkerra, Borehole">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="waterAvailability">Water Availability Status</label>
-                            <select id="waterAvailability" name="waterAvailability">
-                                <option value="">Select Availability</option>
-                                <option value="Adequate">Adequate</option>
-                                <option value="Inadequate">Inadequate</option>
-                                <option value="Seasonal">Seasonal</option>
-                                <option value="No water">No Water Available</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="mainCrop">Primary Crop</label>
-                            <input type="text" id="mainCrop" name="mainCrop" placeholder="e.g., Maize, Tomatoes, Onions">
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="section fade-in">
                     <h2>Additional Information</h2>
                     
                     <div class="form-group full-width">
@@ -510,12 +667,12 @@
                     </div>
                     
                     <div class="form-group full-width">
-                        <label for="photos">Supporting Documentation</label>
+                        <label for="photos">Supporting Photos</label>
                         <div class="file-input-wrapper">
                             <input type="file" id="photos" name="photos" multiple accept="image/*" class="file-input">
                             <label for="photos" class="file-input-label">
-                                📷 Upload Photos & Documents
-                                <span style="font-size: 0.875rem; opacity: 0.8;">(Multiple files allowed)</span>
+                                📷 Upload Photos
+                                <span style="font-size: 0.875rem; opacity: 0.8;">(Multiple image files allowed)</span>
                             </label>
                         </div>
                     </div>
@@ -535,7 +692,7 @@
     </div>
 
     <script>
-        // Enhanced scheme data
+        // Enhanced scheme data with types
         const schemesData = {
             "Baringo South": [
                 {name: "Perkerra", type: "Major"},
@@ -644,22 +801,33 @@
             updateProgress();
         }
 
-        // File upload feedback
-        document.getElementById('photos').addEventListener('change', function() {
-            const label = document.querySelector('.file-input-label');
-            const fileCount = this.files.length;
-            
-            if (fileCount > 0) {
-                label.innerHTML = `📷 ${fileCount} file(s) selected`;
-                label.style.borderColor = 'var(--secondary-color)';
-                label.style.backgroundColor = 'rgba(5, 150, 105, 0.1)';
-                label.style.color = 'var(--secondary-color)';
-            } else {
-                label.innerHTML = '📷 Upload Photos & Documents <span style="font-size: 0.875rem; opacity: 0.8;">(Multiple files allowed)</span>';
-                label.style.borderColor = 'var(--border-color)';
-                label.style.backgroundColor = '#f9fafb';
-                label.style.color = 'var(--text-secondary)';
-            }
+        // File upload feedback for all file inputs
+        document.querySelectorAll('input[type="file"]').forEach(fileInput => {
+            fileInput.addEventListener('change', function() {
+                const label = this.nextElementSibling;
+                const fileCount = this.files.length;
+                
+                if (fileCount > 0) {
+                    label.innerHTML = `📄 ${fileCount} file(s) selected`;
+                    label.classList.add('file-selected');
+                } else {
+                    // Reset to original label text based on input ID
+                    if (this.id === 'officeBearersPdf') {
+                        label.innerHTML = '📄 Upload Office Bearers PDF <span style="font-size: 0.875rem; opacity: 0.8;">(PDF files only)</span>';
+                    } else if (this.id === 'schemeMembersPdf') {
+                        label.innerHTML = '📄 Upload Members List PDF <span style="font-size: 0.875rem; opacity: 0.8;">(PDF files only)</span>';
+                    } else if (this.id === 'bylawsPdf') {
+                        label.innerHTML = '📄 Upload By-laws PDF <span style="font-size: 0.875rem; opacity: 0.8;">(Optional)</span>';
+                    } else if (this.id === 'schemeMapPdf') {
+                        label.innerHTML = '📄 Upload Scheme Map PDF <span style="font-size: 0.875rem; opacity: 0.8;">(Optional)</span>';
+                    } else if (this.id === 'intakeDesignsPdf') {
+                        label.innerHTML = '📄 Upload Designs & BOQ PDF <span style="font-size: 0.875rem; opacity: 0.8;">(Optional)</span>';
+                    } else if (this.id === 'photos') {
+                        label.innerHTML = '📷 Upload Photos <span style="font-size: 0.875rem; opacity: 0.8;">(Multiple image files allowed)</span>';
+                    }
+                    label.classList.remove('file-selected');
+                }
+            });
         });
 
         // Form submission with loading state
