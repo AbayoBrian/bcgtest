@@ -12,28 +12,28 @@
         }
 
         :root {
-            --primary-color: #0B6B1A; /* Forest Green - Header / Brand color */
-            --primary-dark: #084d12; /* Darker Forest Green */
-            --primary-light: #4CAF50; /* Lighter Green for hover/effects */
-            
-            --secondary-color: #D0D0D0; /* Accent Gray - Borders or sections */
-            --accent-color: #F2F2F2; /* Light Gray - background in cards/tables */
-            
-            --background-gradient: linear-gradient(135deg, #F2F2F2 0%, #D0D0D0 100%);
-            --card-background: rgba(255, 255, 255, 0.95); /* Matches white card sections */
-            
-            --text-primary: #000000; /* Black for text */
-            --text-secondary: #4B5563; /* Soft black/gray for secondary text */
-            
-            --border-color: #E5E5E5; /* Soft light border */
-            
-            --shadow-light: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-            --shadow-medium: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
-            --shadow-heavy: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
-            
-            --border-radius: 12px;
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+    --primary-color: #0fa726; /* Forest Green - Header / Brand color */
+    --primary-dark: #12d830; /* Darker Forest Green */
+    --primary-light: #31ad35; /* Lighter Green for hover/effects */
+    
+    --secondary-color: #D0D0D0; /* Accent Gray - Borders or sections */
+    --accent-color: #F2F2F2; /* Light Gray - background in cards/tables */
+    
+    --background-gradient: linear-gradient(135deg, #F2F2F2 0%, #D0D0D0 100%);
+    --card-background: rgba(255, 255, 255, 0.95); /* Matches white card sections */
+    
+    --text-primary: #000000; /* Black for text */
+    --text-secondary: #4B5563; /* Soft black/gray for secondary text */
+    
+    --border-color: #E5E5E5; /* Soft light border */
+    
+    --shadow-light: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    --shadow-medium: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+    --shadow-heavy: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+    
+    --border-radius: 12px;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
         /* Site Header Styling */
         .site-header {
@@ -240,7 +240,6 @@
 
         .form-group {
             margin-bottom: 1.5rem;
-            position: relative;
         }
 
         .form-group.full-width {
@@ -433,105 +432,6 @@
             color: #78350f;
         }
 
-        /* Error styling */
-        .error-message {
-            color: #dc2626;
-            font-size: 0.8rem;
-            margin-top: 0.25rem;
-            display: none;
-        }
-
-        .has-error input,
-        .has-error select,
-        .has-error textarea {
-            border-color: #dc2626;
-        }
-
-        .has-error .error-message {
-            display: block;
-        }
-
-        /* Confirmation modal */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.5);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 2000;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .modal-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .modal {
-            background: white;
-            border-radius: var(--border-radius);
-            padding: 2rem;
-            max-width: 500px;
-            width: 90%;
-            box-shadow: var(--shadow-heavy);
-            transform: translateY(20px);
-            transition: all 0.3s ease;
-        }
-
-        .modal-overlay.active .modal {
-            transform: translateY(0);
-        }
-
-        .modal h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--primary-color);
-        }
-
-        .modal p {
-            margin-bottom: 2rem;
-        }
-
-        .modal-actions {
-            display: flex;
-            gap: 1rem;
-            justify-content: flex-end;
-        }
-
-        .modal-btn {
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .modal-btn-cancel {
-            background: #f3f4f6;
-            color: var(--text-primary);
-            border: 1px solid #d1d5db;
-        }
-
-        .modal-btn-cancel:hover {
-            background: #e5e7eb;
-        }
-
-        .modal-btn-confirm {
-            background: var(--primary-color);
-            color: white;
-            border: none;
-        }
-
-        .modal-btn-confirm:hover {
-            background: var(--primary-dark);
-        }
-
         @media (max-width: 768px) {
             .site-header .header-container {
                 padding: 0 1rem;
@@ -574,10 +474,6 @@
             
             .btn { 
                 width: 100%; 
-            }
-
-            .modal-actions {
-                flex-direction: column;
             }
         }
 
@@ -652,10 +548,10 @@
                     <div class="progress-fill" id="progressFill"></div>
                 </div>
                 
-                <form id="irrigationForm" action="submit_data.php" method="POST" enctype="multipart/form-data">
-                    <div class="section fade-in">
-                        <h2>Basic Information</h2>
-                        <div class="info-card">
+                <form id="irrigationForm" action="/submit" method="POST" enctype="multipart/form-data">
+    <div class="section fade-in">
+        <h2>Basic Information</h2>
+        <div class="info-card">
                             <strong>Instructions:</strong> Please fill out all required fields marked with an asterisk (*). This data will be used for comprehensive irrigation scheme analysis and planning.
                         </div>
                         
@@ -663,13 +559,11 @@
                             <div class="form-group">
                                 <label for="agentName" class="required">Field Agent Name</label>
                                 <input type="text" id="agentName" name="agentName" required placeholder="Enter your full name">
-                                <div class="error-message">Please enter your name</div>
                             </div>
                             
                             <div class="form-group">
                                 <label for="visitDate" class="required">Assessment Date</label>
                                 <input type="date" id="visitDate" name="visitDate" required>
-                                <div class="error-message">Please select a valid date</div>
                             </div>
                             
                             <div class="form-group">
@@ -683,7 +577,6 @@
                                     <option value="Tiaty">Tiaty</option>
                                     <option value="Baringo Central">Baringo Central</option>
                                 </select>
-                                <div class="error-message">Please select a subcounty</div>
                             </div>
                             
                             <div class="form-group">
@@ -691,9 +584,19 @@
                                 <select id="scheme" name="scheme" required>
                                     <option value="">Select Subcounty First</option>
                                 </select>
-                                <div class="error-message">Please select an irrigation scheme</div>
                             </div>
                         </div>
+                        
+                        <!-- New GPS Coordinates field -->
+    <div class="form-group full-width">
+        <label for="gpsCoordinates" class="required">GPS Coordinates</label>
+        <input type="text" id="gpsCoordinates" name="gpsCoordinates" required 
+               placeholder="Enter coordinates in decimal degrees (e.g., 0.6341° N, 35.7364° E)">
+        <small style="display: block; margin-top: 0.25rem; color: var(--text-secondary);">
+            Format: Latitude, Longitude (e.g., 0.6341° N, 35.7364° E or -0.6341, 35.7364)
+        </small>
+    </div>
+</div>
 
                         <!-- Office Bearers Section -->
                         <div class="subsection">
@@ -708,10 +611,9 @@
                                     <input type="file" id="officeBearersPdf" name="officeBearersPdf" accept=".pdf" class="file-input" required>
                                     <label for="officeBearersPdf" class="file-input-label">
                                         📄 Upload Office Bearers PDF
-                                        <span style="font-size: 0.875rem; opacity: 0.8;">(PDF files only, max 5MB)</span>
+                                        <span style="font-size: 0.875rem; opacity: 0.8;">(PDF files only)</span>
                                     </label>
                                 </div>
-                                <div class="error-message">Please upload a PDF file (max 5MB)</div>
                             </div>
                         </div>
 
@@ -728,10 +630,9 @@
                                     <input type="file" id="schemeMembersPdf" name="schemeMembersPdf" accept=".pdf" class="file-input" required>
                                     <label for="schemeMembersPdf" class="file-input-label">
                                         📄 Upload Members List PDF
-                                        <span style="font-size: 0.875rem; opacity: 0.8;">(PDF files only, max 5MB)</span>
+                                        <span style="font-size: 0.875rem; opacity: 0.8;">(PDF files only)</span>
                                     </label>
                                 </div>
-                                <div class="error-message">Please upload a PDF file (max 5MB)</div>
                             </div>
                         </div>
                     </div>
@@ -749,7 +650,6 @@
                                     <option value="CBO">Community Based Organization (CBO)</option>
                                     <option value="Irrigation water user association">Irrigation Water User Association (IWUA)</option>
                                 </select>
-                                <div class="error-message">Please select a registration status</div>
                             </div>
                             
                             <div class="form-group">
@@ -812,7 +712,7 @@
                         <div class="subsection">
                             <h3>Additional Documentation</h3>
                             <div class="note-card">
-                                <strong>Note:</strong> Please upload relevant documents including by-laws, scheme maps, intake works designs, bills of quantities, and photos as separate PDF files (max 5MB each).
+                                <strong>Note:</strong> Please upload relevant documents including by-laws, scheme maps, intake works designs, bills of quantities, and photos as separate PDF files.
                             </div>
                             
                             <div class="form-grid">
@@ -822,10 +722,9 @@
                                         <input type="file" id="bylawsPdf" name="bylawsPdf" accept=".pdf" class="file-input">
                                         <label for="bylawsPdf" class="file-input-label">
                                             📄 Upload By-laws PDF
-                                            <span style="font-size: 0.875rem; opacity: 0.8;">(Optional, max 5MB)</span>
+                                            <span style="font-size: 0.875rem; opacity: 0.8;">(Optional)</span>
                                         </label>
                                     </div>
-                                    <div class="error-message">File must be PDF and under 5MB</div>
                                 </div>
 
                                 <div class="form-group">
@@ -834,10 +733,9 @@
                                         <input type="file" id="schemeMapPdf" name="schemeMapPdf" accept=".pdf" class="file-input">
                                         <label for="schemeMapPdf" class="file-input-label">
                                             📄 Upload Scheme Map PDF
-                                            <span style="font-size: 0.875rem; opacity: 0.8;">(Optional, max 5MB)</span>
+                                            <span style="font-size: 0.875rem; opacity: 0.8;">(Optional)</span>
                                         </label>
                                     </div>
-                                    <div class="error-message">File must be PDF and under 5MB</div>
                                 </div>
 
                                 <div class="form-group">
@@ -846,10 +744,9 @@
                                         <input type="file" id="intakeDesignsPdf" name="intakeDesignsPdf" accept=".pdf" class="file-input">
                                         <label for="intakeDesignsPdf" class="file-input-label">
                                             📄 Upload Designs & BOQ PDF
-                                            <span style="font-size: 0.875rem; opacity: 0.8;">(Optional, max 5MB)</span>
+                                            <span style="font-size: 0.875rem; opacity: 0.8;">(Optional)</span>
                                         </label>
                                     </div>
-                                    <div class="error-message">File must be PDF and under 5MB</div>
                                 </div>
                             </div>
                         </div>
@@ -858,7 +755,7 @@
                         <div class="subsection">
                             <h3>Project Reports</h3>
                             <div class="note-card">
-                                <strong>Note:</strong> Please upload the following reports in PDF format for comprehensive project assessment (max 5MB each).
+                                <strong>Note:</strong> Please upload the following reports in PDF format for comprehensive project assessment.
                             </div>
                             
                             <div class="form-grid">
@@ -868,142 +765,120 @@
                                         <input type="file" id="feasibilityReport" name="feasibilityReport" accept=".pdf" class="file-input">
                                         <label for="feasibilityReport" class="file-input-label">
                                             📄 Upload Feasibility Report
-                                            <span style="font-size: 0.875rem; opacity: 0.8;">(PDF files only, max 5MB)</span>
-                                        </label>
-                                    </div>
-                                    <div class="error-message">File must be PDF and under 5MB</div>
+                                            <span style="font-size: 0.875rem; opacity: 0.8;">(PDF files only)</span>
+                                            </label>
                                 </div>
+                            </div>
 
-                                <div class="form-group">
-                                    <label for="esiaReport">ESIA Report (PDF)</label>
-                                    <div class="file-input-wrapper">
-                                        <input type="file" id="esiaReport" name="esiaReport" accept=".pdf" class="file-input">
-                                        <label for="esiaReport" class="file-input-label">
-                                            📄 Upload ESIA Report
-                                            <span style="font-size: 0.875rem; opacity: 0.8;">(PDF files only, max 5MB)</span>
-                                        </label>
-                                    </div>
-                                    <div class="error-message">File must be PDF and under 5MB</div>
+                            <div class="form-group">
+                                <label for="esiaReport">ESIA Report (PDF)</label>
+                                <div class="file-input-wrapper">
+                                    <input type="file" id="esiaReport" name="esiaReport" accept=".pdf" class="file-input">
+                                    <label for="esiaReport" class="file-input-label">
+                                        📄 Upload ESIA Report
+                                        <span style="font-size: 0.875rem; opacity: 0.8;">(PDF files only)</span>
+                                    </label>
                                 </div>
+                            </div>
 
-                                <div class="form-group">
-                                    <label for="wraLicensing">WRA Licensing (PDF)</label>
-                                    <div class="file-input-wrapper">
-                                        <input type="file" id="wraLicensing" name="wraLicensing" accept=".pdf" class="file-input">
-                                        <label for="wraLicensing" class="file-input-label">
-                                            📄 Upload WRA Licensing
-                                            <span style="font-size: 0.875rem; opacity: 0.8;">(PDF files only, max 5MB)</span>
-                                        </label>
-                                    </div>
-                                    <div class="error-message">File must be PDF and under 5MB</div>
+                            <div class="form-group">
+                                <label for="wraLicensing">WRA Licensing (PDF)</label>
+                                <div class="file-input-wrapper">
+                                    <input type="file" id="wraLicensing" name="wraLicensing" accept=".pdf" class="file-input">
+                                    <label for="wraLicensing" class="file-input-label">
+                                        📄 Upload WRA Licensing
+                                        <span style="font-size: 0.875rem; opacity: 0.8;">(PDF files only)</span>
+                                    </label>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
                 
-                    <div class="section fade-in">
-                        <h2>Operational Assessment</h2>
-                        
-                        <div class="form-grid">
-                            <div class="form-group">
-                                <label for="currentStatus" class="required">Current Operational Status</label>
-                                <select id="currentStatus" name="currentStatus" required onchange="updateStatusIndicator()">
-                                    <option value="">Select Status</option>
-                                    <option value="Active">Active</option>
-                                    <option value="Dormant">Dormant</option>
-                                    <option value="Under Construction">Under Construction</option>
-                                    <option value="Proposed">Proposed</option>
-                                    <option value="Abandoned">Abandoned</option>
-                                </select>
-                                <div class="error-message">Please select a status</div>
-                                <div id="statusIndicator"></div>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="implementingAgency">Implementing Agency</label>
-                                <input type="text" id="implementingAgency" name="implementingAgency" placeholder="e.g., NIWMP, County Government">
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="schemeArea">Total Scheme Area (acres)</label>
-                                <input type="number" id="schemeArea" name="schemeArea" step="0.1" min="0" placeholder="0.0">
-                                <div class="error-message">Please enter a valid number</div>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="irrigableArea">Irrigable Area (acres)</label>
-                                <input type="number" id="irrigableArea" name="irrigableArea" step="0.1" min="0" placeholder="0.0">
-                                <div class="error-message">Please enter a valid number</div>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="croppedArea">Currently Cropped Area (acres)</label>
-                                <input type="number" id="croppedArea" name="croppedArea" step="0.1" min="0" placeholder="0.0">
-                                <div class="error-message">Please enter a valid number</div>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="farmersCount">Number of Active Farmers</label>
-                                <input type="number" id="farmersCount" name="farmersCount" min="0" placeholder="0">
-                                <div class="error-message">Please enter a valid number</div>
-                            </div>
+                <div class="section fade-in">
+                    <h2>Operational Assessment</h2>
+                    
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="currentStatus" class="required">Current Operational Status</label>
+                            <select id="currentStatus" name="currentStatus" required onchange="updateStatusIndicator()">
+                                <option value="">Select Status</option>
+                                <option value="Active">Active</option>
+                                <option value="Dormant">Dormant</option>
+                                <option value="Under Construction">Under Construction</option>
+                                <option value="Proposed">Proposed</option>
+                                <option value="Abandoned">Abandoned</option>
+                            </select>
+                            <div id="statusIndicator"></div>
                         </div>
+                        
+                        <div class="form-group">
+                            <label for="implementingAgency">Implementing Agency</label>
+                            <input type="text" id="implementingAgency" name="implementingAgency" placeholder="e.g., NIWMP, County Government">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="schemeArea">Total Scheme Area (acres)</label>
+                            <input type="number" id="schemeArea" name="schemeArea" step="0.1" placeholder="0.0">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="irrigableArea">Irrigable Area (acres)</label>
+                            <input type="number" id="irrigableArea" name="irrigableArea" step="0.1" placeholder="0.0">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="croppedArea">Currently Cropped Area (acres)</label>
+                            <input type="number" id="croppedArea" name="croppedArea" step="0.1" placeholder="0.0">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="farmersCount">Number of Active Farmers</label>
+                            <input type="number" id="farmersCount" name="farmersCount" placeholder="0">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section fade-in">
+                    <h2>Additional Information</h2>
+                    
+                    <div class="form-group full-width">
+                        <label for="futurePlans">Development Plans & Recommendations</label>
+                        <textarea id="futurePlans" name="futurePlans" placeholder="Describe any planned developments, expansions, or recommended improvements..."></textarea>
                     </div>
                     
-                    <div class="section fade-in">
-                        <h2>Additional Information</h2>
-                        
-                        <div class="form-group full-width">
-                            <label for="futurePlans">Development Plans & Recommendations</label>
-                            <textarea id="futurePlans" name="futurePlans" placeholder="Describe any planned developments, expansions, or recommended improvements..."></textarea>
-                        </div>
-                        
-                        <div class="form-group full-width">
-                            <label for="challenges">Current Challenges & Constraints</label>
-                            <textarea id="challenges" name="challenges" placeholder="Detail the main challenges facing this irrigation scheme..."></textarea>
-                        </div>
-                        
-                        <div class="form-group full-width">
-                            <label for="additionalNotes">Additional Observations</label>
-                            <textarea id="additionalNotes" name="additionalNotes" placeholder="Any other relevant information or observations..."></textarea>
-                        </div>
-                        
-                        <div class="form-group full-width">
-                            <label for="photos">Supporting Photos</label>
-                            <div class="file-input-wrapper">
-                                <input type="file" id="photos" name="photos" multiple accept="image/*" class="file-input">
-                                <label for="photos" class="file-input-label">
-                                    📷 Upload Photos
-                                    <span style="font-size: 0.875rem; opacity: 0.8;">(Multiple image files allowed, max 5MB each)</span>
-                                </label>
-                            </div>
-                            <div class="error-message">Please upload valid image files (max 5MB each)</div>
-                        </div>
+                    <div class="form-group full-width">
+                        <label for="challenges">Current Challenges & Constraints</label>
+                        <textarea id="challenges" name="challenges" placeholder="Detail the main challenges facing this irrigation scheme..."></textarea>
                     </div>
                     
-                    <div class="submit-section">
-                        <button type="submit" class="btn">
-                            <span class="loading" id="loadingSpinner"></span>
-                            Submit Assessment Report
-                        </button>
-                        <p style="margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem;">
-                            Your data will be securely stored and processed for irrigation management analysis.
-                        </p>
+                    <div class="form-group full-width">
+                        <label for="additionalNotes">Additional Observations</label>
+                        <textarea id="additionalNotes" name="additionalNotes" placeholder="Any other relevant information or observations..."></textarea>
                     </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <!-- Confirmation Modal -->
-    <div class="modal-overlay" id="confirmationModal">
-        <div class="modal">
-            <h3>Confirm Submission</h3>
-            <p>Are you sure you want to submit this irrigation scheme assessment? Please review all information before proceeding.</p>
-            <div class="modal-actions">
-                <button class="modal-btn modal-btn-cancel" id="cancelSubmit">Cancel</button>
-                <button class="modal-btn modal-btn-confirm" id="confirmSubmit">Confirm Submission</button>
-            </div>
+                    
+                    <div class="form-group full-width">
+                        <label for="photos">Supporting Photos</label>
+                        <div class="file-input-wrapper">
+                            <input type="file" id="photos" name="photos" multiple accept="image/*" class="file-input">
+                            <label for="photos" class="file-input-label">
+                                📷 Upload Photos
+                                <span style="font-size: 0.875rem; opacity: 0.8;">(Multiple image files allowed)</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="submit-section">
+                    <button type="submit" class="btn">
+                        <span class="loading" id="loadingSpinner"></span>
+                        Submit Assessment Report
+                    </button>
+                    <p style="margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem;">
+                        Your data will be securely stored and processed for irrigation management analysis.
+                    </p>
+                </div>
+            </form>
         </div>
     </div>
 
@@ -1065,18 +940,14 @@
         // Progress tracking
         function updateProgress() {
             const form = document.getElementById('irrigationForm');
-            const inputs = Array.from(form.querySelectorAll('input[required], select[required], textarea[required]'));
+            const inputs = form.querySelectorAll('input[required], select[required]');
             let filled = 0;
             
             inputs.forEach(input => {
-                if (input.type === 'file') {
-                    if (input.files && input.files.length > 0) filled++;
-                } else if (input.value.trim() !== '') {
-                    filled++;
-                }
+                if (input.value.trim() !== '') filled++;
             });
             
-            const progress = Math.min(100, (filled / inputs.length) * 100);
+            const progress = (filled / inputs.length) * 100;
             document.getElementById('progressFill').style.width = progress + '%';
         }
 
@@ -1090,16 +961,12 @@
             const selectedSubcounty = subcountySelect.value;
             
             if (selectedSubcounty && schemesData[selectedSubcounty]) {
-                if (schemesData[selectedSubcounty].length === 0) {
-                    schemeSelect.innerHTML = '<option value="">No schemes available for this subcounty</option>';
-                } else {
-                    schemesData[selectedSubcounty].forEach(scheme => {
-                        const option = document.createElement('option');
-                        option.value = scheme.name;
-                        option.textContent = `${scheme.name} (${scheme.type})`;
-                        schemeSelect.appendChild(option);
-                    });
-                }
+                schemesData[selectedSubcounty].forEach(scheme => {
+                    const option = document.createElement('option');
+                    option.value = scheme.name;
+                    option.textContent = `${scheme.name} (${scheme.type})`;
+                    schemeSelect.appendChild(option);
+                });
             }
             updateProgress();
         }
@@ -1125,180 +992,63 @@
             updateProgress();
         }
 
-        // Validate file inputs
-        function validateFileInput(input) {
-            const maxSize = 5 * 1024 * 1024; // 5MB
-            const wrapper = input.closest('.form-group');
-            
-            if (input.required && (!input.files || input.files.length === 0)) {
-                wrapper.classList.add('has-error');
-                return false;
-            }
-            
-            if (input.files && input.files.length > 0) {
-                const file = input.files[0];
-                if (file.size > maxSize) {
-                    wrapper.classList.add('has-error');
-                    return false;
-                }
-                
-                if (input.accept && !input.accept.split(',').includes(file.type)) {
-                    wrapper.classList.add('has-error');
-                    return false;
-                }
-            }
-            
-            wrapper.classList.remove('has-error');
-            return true;
-        }
-
-        // Validate form fields
-        function validateFormField(field) {
-            const wrapper = field.closest('.form-group');
-            
-            if (field.required && field.value.trim() === '') {
-                wrapper.classList.add('has-error');
-                return false;
-            }
-            
-            if (field.type === 'number' && field.value && isNaN(field.value)) {
-                wrapper.classList.add('has-error');
-                return false;
-            }
-            
-            if (field.type === 'date' && field.value && isNaN(new Date(field.value).getTime())) {
-                wrapper.classList.add('has-error');
-                return false;
-            }
-            
-            wrapper.classList.remove('has-error');
-            return true;
-        }
-
         // File upload feedback for all file inputs
         document.querySelectorAll('input[type="file"]').forEach(fileInput => {
             fileInput.addEventListener('change', function() {
                 const label = this.nextElementSibling;
                 const fileCount = this.files.length;
-                const isValid = validateFileInput(this);
                 
-                if (fileCount > 0 && isValid) {
+                if (fileCount > 0) {
                     label.innerHTML = `📄 ${fileCount} file(s) selected`;
                     label.classList.add('file-selected');
                 } else {
-                    // Reset to original label text
-                    const originalText = {
-                        'officeBearersPdf': '📄 Upload Office Bearers PDF',
-                        'schemeMembersPdf': '📄 Upload Members List PDF',
-                        'bylawsPdf': '📄 Upload By-laws PDF',
-                        'schemeMapPdf': '📄 Upload Scheme Map PDF',
-                        'intakeDesignsPdf': '📄 Upload Designs & BOQ PDF',
-                        'feasibilityReport': '📄 Upload Feasibility Report',
-                        'esiaReport': '📄 Upload ESIA Report',
-                        'wraLicensing': '📄 Upload WRA Licensing',
-                        'photos': '📷 Upload Photos'
-                    };
-                    
-                    const spanText = {
-                        'officeBearersPdf': '(PDF files only, max 5MB)',
-                        'schemeMembersPdf': '(PDF files only, max 5MB)',
-                        'bylawsPdf': '(Optional, max 5MB)',
-                        'schemeMapPdf': '(Optional, max 5MB)',
-                        'intakeDesignsPdf': '(Optional, max 5MB)',
-                        'feasibilityReport': '(PDF files only, max 5MB)',
-                        'esiaReport': '(PDF files only, max 5MB)',
-                        'wraLicensing': '(PDF files only, max 5MB)',
-                        'photos': '(Multiple image files allowed, max 5MB each)'
-                    };
-                    
-                    label.innerHTML = `${originalText[this.id]} <span style="font-size: 0.875rem; opacity: 0.8;">${spanText[this.id]}</span>`;
+                    // Reset to original label text based on input ID
+                    if (this.id === 'officeBearersPdf') {
+                        label.innerHTML = '📄 Upload Office Bearers PDF <span style="font-size: 0.875rem; opacity: 0.8;">(PDF files only)</span>';
+                    } else if (this.id === 'schemeMembersPdf') {
+                        label.innerHTML = '📄 Upload Members List PDF <span style="font-size: 0.875rem; opacity: 0.8;">(PDF files only)</span>';
+                    } else if (this.id === 'bylawsPdf') {
+                        label.innerHTML = '📄 Upload By-laws PDF <span style="font-size: 0.875rem; opacity: 0.8;">(Optional)</span>';
+                    } else if (this.id === 'schemeMapPdf') {
+                        label.innerHTML = '📄 Upload Scheme Map PDF <span style="font-size: 0.875rem; opacity: 0.8;">(Optional)</span>';
+                    } else if (this.id === 'intakeDesignsPdf') {
+                        label.innerHTML = '📄 Upload Designs & BOQ PDF <span style="font-size: 0.875rem; opacity: 0.8;">(Optional)</span>';
+                    } else if (this.id === 'feasibilityReport') {
+                        label.innerHTML = '📄 Upload Feasibility Report <span style="font-size: 0.875rem; opacity: 0.8;">(PDF files only)</span>';
+                    } else if (this.id === 'esiaReport') {
+                        label.innerHTML = '📄 Upload ESIA Report <span style="font-size: 0.875rem; opacity: 0.8;">(PDF files only)</span>';
+                    } else if (this.id === 'wraLicensing') {
+                        label.innerHTML = '📄 Upload WRA Licensing <span style="font-size: 0.875rem; opacity: 0.8;">(PDF files only)</span>';
+                    } else if (this.id === 'photos') {
+                        label.innerHTML = '📷 Upload Photos <span style="font-size: 0.875rem; opacity: 0.8;">(Multiple image files allowed)</span>';
+                    }
                     label.classList.remove('file-selected');
                 }
-                
-                updateProgress();
             });
         });
-
-        // Form validation before submission
-        function validateForm() {
-            let isValid = true;
-            const form = document.getElementById('irrigationForm');
-            
-            // Validate all required fields
-            form.querySelectorAll('input[required], select[required], textarea[required]').forEach(field => {
-                if (field.type === 'file') {
-                    if (!validateFileInput(field)) isValid = false;
-                } else {
-                    if (!validateFormField(field)) isValid = false;
-                }
-            });
-            
-            // Validate number fields
-            form.querySelectorAll('input[type="number"]').forEach(field => {
-                if (field.value && isNaN(field.value)) {
-                    field.closest('.form-group').classList.add('has-error');
-                    isValid = false;
-                }
-            });
-            
-            // Scroll to first error if any
-            if (!isValid) {
-                const firstError = form.querySelector('.has-error');
-                if (firstError) {
-                    firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }
-            }
-            
-            return isValid;
-        }
 
         // Form submission with loading state
         document.getElementById('irrigationForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            if (!validateForm()) {
-                return;
-            }
-            
-            // Show confirmation modal
-            document.getElementById('confirmationModal').classList.add('active');
-        });
-
-        // Confirm submission
-        document.getElementById('confirmSubmit').addEventListener('click', function() {
-            const form = document.getElementById('irrigationForm');
-            const button = form.querySelector('.btn');
+            const button = document.querySelector('.btn');
             const spinner = document.getElementById('loadingSpinner');
             
-            // Hide modal
-            document.getElementById('confirmationModal').classList.remove('active');
-            
-            // Show loading state
             button.disabled = true;
             spinner.style.display = 'inline-block';
             button.innerHTML = '<span class="loading"></span> Processing...';
             
-            // Submit form after short delay (in production, remove setTimeout)
+            // Simulate processing time (remove in production)
             setTimeout(() => {
-                form.submit();
-            }, 1500);
-        });
-
-        // Cancel submission
-        document.getElementById('cancelSubmit').addEventListener('click', function() {
-            document.getElementById('confirmationModal').classList.remove('active');
+                button.disabled = false;
+                spinner.style.display = 'none';
+                button.innerHTML = 'Submit Assessment Report';
+            }, 3000);
         });
 
         // Add event listeners for progress tracking
         document.addEventListener('DOMContentLoaded', function() {
             const inputs = document.querySelectorAll('input, select, textarea');
             inputs.forEach(input => {
-                input.addEventListener('input', function() {
-                    if (this.type !== 'file') {
-                        validateFormField(this);
-                    }
-                    updateProgress();
-                });
+                input.addEventListener('input', updateProgress);
                 input.addEventListener('change', updateProgress);
             });
             
@@ -1320,3 +1070,4 @@
     </script>
 </body>
 </html>
+                                            
